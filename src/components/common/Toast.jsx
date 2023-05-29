@@ -1,12 +1,5 @@
-import React, { useState } from "react";
-import {
-  Snackbar,
-  SnackbarContent,
-  IconButton,
-  Button,
-  Alert,
-} from "@mui/material";
-import { Close as CloseIcon } from "@mui/icons-material";
+import React from "react";
+import { Snackbar, Alert } from "@mui/material";
 
 export default function Toast({
   show = false,

@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, CircularProgress, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import OTPInput from "react-otp-input";
 import PhoneInput from "react-phone-input-2";
@@ -17,7 +10,6 @@ export default function Login() {
   const [phone, setPhone] = useState("");
   const [showVerifyOTP, setShowVerifyOTP] = useState(false);
   const [otp, setOtp] = useState("");
-  const [verificationId, setVerificationId] = useState("");
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
