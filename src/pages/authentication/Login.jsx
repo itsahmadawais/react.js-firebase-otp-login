@@ -76,7 +76,7 @@ export default function Login() {
         .catch((error) => {
           // Error; SMS not sent
           // ...
-          console.log("SMS not sent");
+          console.log("SMS not sent", error);
           setToast({
             ...toast,
             show: true,
