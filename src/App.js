@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Dashboard, Login } from "./pages";
+import "react-phone-input-2/lib/style.css";
+import "./App.css";
+import { Guest, Protected } from "./components";
 function App() {
+  const routes = [
+    {
+      link: "/",
+      element: <Login />,
+      isGuest: true,
+    },
+    {
+      link: "/dashboard",
+      element: <Dashboard />,
+      isProtected: true,
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          {routes.map((item, index) => {
+            if (item.isProtected) {
+              return (
+                <Route
+                  key={index}
+                  path={item.link}
+                  element={<Protected>{item.element}</Protected>}
+                />
+              );
+            } else if (item.isGuest) {
+              <Route
+                key={index}
+                path={item.link}
+                element={<Guest>{item.element}</Guest>}
+              />;
+            }
+            return (
+              <Route key={index} path={item.link} element={item.element} />
+            );
+          })}
+        </Routes>
+      </Router>
+    </>
   );
 }
 
