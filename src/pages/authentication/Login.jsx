@@ -30,7 +30,6 @@ export default function Login() {
         size: "invisible",
         callback: (response) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
-          onSendOTP();
           console.log("Recaptca varified");
         },
         defaultCountry: "PK",
