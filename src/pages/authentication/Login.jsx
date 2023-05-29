@@ -44,15 +44,15 @@ export default function Login() {
 
   const onSendOTP = async () => {
     const phoneNumber = "+" + phone;
-    setIsLoading(!isLoading);
-    if (phone.length <= 3) {
+    setIsLoading(true);
+    if (phone.length <= 8) {
       setToast({
         ...toast,
         show: true,
         type: "error",
         message: "Phone number is required!",
       });
-      setIsLoading(!isLoading);
+      setIsLoading(false);
     } else {
       configureCaptcha();
       const appVerifier = window.recaptchaVerifier;
@@ -85,7 +85,7 @@ export default function Login() {
           });
         })
         .finally(() => {
-          setIsLoading(!isLoading);
+          setIsLoading(false);
         });
     }
   };
@@ -93,7 +93,7 @@ export default function Login() {
   const onVerifyOTP = async () => {
     const code = otp;
     console.log(code);
-    setIsLoading();
+    setIsLoading(true);
     window.confirmationResult
       .confirm(code)
       .then((result) => {
@@ -120,7 +120,7 @@ export default function Login() {
         });
       })
       .finally(() => {
-        setIsLoading(!isLoading);
+        setIsLoading(false);
       });
   };
 
