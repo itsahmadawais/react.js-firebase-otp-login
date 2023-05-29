@@ -229,10 +229,9 @@ export default function Login() {
             backgroundImage: "url('/images/bg.jpg')",
             backgroundSize: "cover",
             height: "100%",
+            width: "100%",
           }}
-        >
-          Item 2
-        </Grid>
+        ></Grid>
       </Grid>
     </Box>
   );
