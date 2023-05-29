@@ -81,7 +81,8 @@ export default function Login() {
             ...toast,
             show: true,
             type: "error",
-            message: "Phone number is required!",
+            message:
+              "There occured an error while sending OTP! Please try again!",
           });
         })
         .finally(() => {
