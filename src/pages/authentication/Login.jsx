@@ -45,7 +45,7 @@ export default function Login() {
   const onSendOTP = async () => {
     const phoneNumber = "+" + phone;
     setIsLoading(!isLoading);
-    if (phoneNumber.length <= 3) {
+    if (phone.length <= 3) {
       setToast({
         ...toast,
         show: true,
